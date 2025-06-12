@@ -8,6 +8,7 @@ This project is part of a broader portfolio to explore financial crime, graph mo
 
 ---
 
+
 ## 🚩 Why this project?
 
 Because fraudsters are getting smarter, and it’s time for data scientists to catch up.  
@@ -17,6 +18,18 @@ Using the [Elliptic Bitcoin Dataset](https://www.kaggle.com/datasets/ellipticco/
 - Engineer meaningful graph features
 - Train models that classify suspicious transactions
 - Lay the foundation for research and advanced modeling like GNNs
+
+**Note**: Due to file size limits, raw data files are not included in the repository. Please download `elliptic_txs_features.csv` from the original [Kaggle dataset](https://www.kaggle.com/datasets/ellipticco/elliptic-data-set) and place it in `data/raw/`.
+
+---
+
+### 📥 Data Setup
+
+To run this project, you need to manually download the dataset:
+
+1. Go to [Kaggle: Elliptic Bitcoin Dataset](https://www.kaggle.com/datasets/ellipticco/elliptic-data-set)
+2. Download the `.zip` file and extract it
+3. Place the extracted `.csv` files into this folder:
 
 ---
 
@@ -95,3 +108,4 @@ This project is open-sourced under the MIT License. Use it. Extend it. Fight cri
 ---
 
 🎯 *"Graph theory meets criminal intent — one transaction at a time."*
+
