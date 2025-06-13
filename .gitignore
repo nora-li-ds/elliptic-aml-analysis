@@ -13,9 +13,6 @@ elliptic-env/
 # Jupyter
 .ipynb_checkpoints/
 
-# Raw data (do not upload)
-data/
-
 # Lets ignore all CSV and zip large data files，but keep their structures
 data/**/*.csv
 data/**/*.zip
