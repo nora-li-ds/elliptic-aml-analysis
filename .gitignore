@@ -17,3 +17,10 @@ elliptic-env/
 data/**/*.csv
 data/**/*.zip
 data/**/*.json
+
+# large data artifacts
+notebooks/data/processed/
+data/processed/
+*.parquet
+*.feather
+*.csv
