@@ -54,13 +54,17 @@ elliptic-aml-analysis/
 │   ├── 04_graph_models.ipynb            <- Graph embeddings & GNN experiments
 │   └── 05_anomaly_detection.ipynb       <- Semi-supervised & outlier detection
 ├── scripts/
-│   └── utils.py                         <- Custom helpers & metrics
+│   ├── utils.py                         <- Custom helpers & metrics
+│   ├── preprocessing.py                 <- Cleaning, feature selection, splitting
+│   ├── models.py                        <- Training pipelines & evaluation
+│   └── visualization.py                 <- Plots (heatmaps, ROC, confusion matrix)
 ├── reports/
 │   ├── figures/                         <- Key visualizations
 │   └── summary.md                       <- Reflective notes & insights
 ├── requirements.txt                     <- Dependencies
 ├── .gitignore                           <- Keeps repo clean
 └── README.md                            <- You are here
+
 ```
 
 ---

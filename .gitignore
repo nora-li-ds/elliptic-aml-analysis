@@ -5,22 +5,45 @@
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
 
 # Virtual environments
 .venv/
+venv/
+env/
 elliptic-env/
 
 # Jupyter
 .ipynb_checkpoints/
+*.ipynb_checkpoints/
 
-# Lets ignore all CSV and zip large data files，but keep their structures
+# Logs and outputs
+*.log
+logs/
+outputs/
+reports/*.html
+reports/*.pdf
+
+# Data files (large / sensitive)
 data/**/*.csv
 data/**/*.zip
 data/**/*.json
+data/**/*.xlsx
+data/**/*.xls
+data/**/*.pkl
+data/**/*.npy
 
 # large data artifacts
 notebooks/data/processed/
 data/processed/
 *.parquet
 *.feather
-*.csv
+*.h5
+
+# IDE / editor files
+.vscode/
+.idea/
+*.swp
+
+# OS
+Thumbs.db
