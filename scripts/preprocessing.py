@@ -9,7 +9,7 @@ Helper functions for data cleaning, feature engineering, and dataset splits.
 
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler
+# from sklearn.preprocessing import StandardScaler
 
 def drop_high_corr(df, threshold=0.98, exclude_cols=None):
     """
