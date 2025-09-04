@@ -14,12 +14,12 @@ This project uses the **Elliptic Bitcoin Dataset** to:
 - Explore GNNs & anomaly detection for **unknown-class fraud**  
 - This project is part of my portfolio on FinCrime Data Science, connecting academic research with industry AML use cases.
 
-## Quick Facts (ง •̀_•́)ง
-📊 **Dataset**: 203k transactions, 234k edges, 166 features  
-⚖️ **Challenge**: Only ~3% illicit → heavy imbalance  
-🕸️ **Graph**: 49 connected components, focus on LCC  
-🧹 **Feature Engineering**: Dropped 46 highly correlated columns  
-⏳ **Split**: Time-based (70/10/20) to avoid data leakage  
+## Quick Facts 
+ **Dataset**: 203k transactions, 234k edges, 166 features  
+ **Challenge**: Only ~3% illicit → heavy imbalance  
+ **Graph**: 49 connected components, focus on LCC  
+ **Feature Engineering**: Dropped 46 highly correlated columns  
+ **Split**: Time-based (70/10/20) to avoid data leakage  
 
 ---
 > Note: Due to file size limits, raw data files are **not included** in this repository.  
@@ -139,7 +139,7 @@ jupyter notebook
 Then open `01_exploration.ipynb` and follow the sequence.
 
 ---
-## 🚧 Project Status
+## 🚧 Project Status (ง •̀_•́)ง
 
 - ✅ 01_exploration.ipynb – completed (graph structure, class distribution, LCC visualization)  
 - ✅ 02_preprocessing.ipynb – completed (feature cleaning, deduplication: dropped 46 correlated columns, time-based split)  
