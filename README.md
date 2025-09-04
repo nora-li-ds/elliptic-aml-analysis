@@ -1,32 +1,31 @@
-# 🕵️‍♀️ Chasing Dirty Coins: An AML Graph Project
+# Chasing Dirty Coins: An AML Graph Project  (•̀ᴗ•́)و
 
-Welcome to **Elliptic AML Analysis** — where we dive into the blockchain shadows, build networks of suspicious transactions, and try to answer one burning question:
-
-> **Can we catch money launderers using machine learning and network science?**
-
-This project is part of a broader portfolio to explore **financial crime**, **graph modeling**, and **predictive analytics** — with real-world **anti-money laundering (AML)** applications.
+Can we **catch money launderers** using **machine learning + network science**?
 
 ---
 
-## 🚩 Why this project?
-
-Fraudsters are getting smarter.  
-It’s time for data scientists to catch up.
-
-Using the **Elliptic Bitcoin Dataset**, we will:
+## Why this project?
+Fraudsters are smart. Data scientists must be smarter.  
+This project uses the **Elliptic Bitcoin Dataset** to:
 
 - Visualize how dirty money flows through networks  
-- Engineer meaningful graph features  
-- Train models that classify suspicious transactions  
-- Extend to advanced modeling like **Graph Neural Networks (GNNs)**  
-- Detect illicit patterns in **unlabeled transactions**  
+- Build graph features (centrality, embeddings, temporal splits)  
+- Train models to classify suspicious transactions  
+- Explore GNNs & anomaly detection for **unknown-class fraud**  
+- This project is part of my portfolio on FinCrime Data Science, connecting academic research with industry AML use cases.
 
+## Quick Facts (ง •̀_•́)ง
+📊 **Dataset**: 203k transactions, 234k edges, 166 features  
+⚖️ **Challenge**: Only ~3% illicit → heavy imbalance  
+🕸️ **Graph**: 49 connected components, focus on LCC  
+🧹 **Feature Engineering**: Dropped 46 highly correlated columns  
+⏳ **Split**: Time-based (70/10/20) to avoid data leakage  
+
+---
 > Note: Due to file size limits, raw data files are **not included** in this repository.  
 > Please download `elliptic_txs_features.csv` from the original Kaggle dataset and place it in `data/raw/`.
 
----
-
-## 📥 Data Setup
+## Data Setup
 
 To run this project, you need to manually download the dataset:
 
@@ -69,7 +68,7 @@ elliptic-aml-analysis/
 
 ---
 
-## 📚 Notebook Overview
+## Notebook Overview
 
 ### **01_exploration.ipynb** – *Data Deep Dive & Network Intuition*
 - Load dataset, inspect distributions, and explore temporal structure  
@@ -112,7 +111,7 @@ elliptic-aml-analysis/
 
 ---
 
-## 📦 About the Dataset
+## About the Dataset
 
 - **Nodes:** 203,769 transactions  
 - **Edges:** 234,355 transaction links  
@@ -124,7 +123,7 @@ elliptic-aml-analysis/
 
 ---
 
-## 🚀 How to Run It Locally
+## How to Run It Locally
 
 1. **Create environment**
 ```bash
@@ -140,17 +139,17 @@ jupyter notebook
 Then open `01_exploration.ipynb` and follow the sequence.
 
 ---
+## 🚧 Project Status
 
-## 📌 What's Next?
-- Add graph metrics (degree, centrality, community detection)  
-- Run GNN experiments for better detection accuracy  
-- Apply anomaly detection to unknown-class transactions  
-- Extend to real-world AML case studies  
-- Draft PhD research proposal based on findings  
+- ✅ 01_exploration.ipynb – completed (graph structure, class distribution, LCC visualization)  
+- ✅ 02_preprocessing.ipynb – completed (feature cleaning, deduplication: dropped 46 correlated columns, time-based split)  
+- ⏳ 03_modeling.ipynb – in progress  
+- 🔜 04_graph_models.ipynb – planned  
+- 🔜 05_anomaly_detection.ipynb – planned  
 
 ---
 
-## 📚 License
+## License
 MIT License — Use it, extend it, and fight crime with it.  
 
 > **"Graph theory meets criminal intent — one transaction at a time."**
