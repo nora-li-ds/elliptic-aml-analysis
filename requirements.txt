@@ -1,33 +1,31 @@
-#Core scientific stack
-numpy>=1.24
-pandas>=2.0
-scipy>=1.10
+# Core scientific stack
+numpy==2.3.2
+pandas==2.3.2
+scipy==1.16.1
 
-#Notebook & tooling
-jupyter>=1.0
-ipykernel>=6.0
-tqdm>=4.65
-joblib>=1.3
+# Notebook & tooling
+jupyter==1.1.1
+ipykernel==6.30.1
+tqdm==4.67.1
+joblib==1.5.2
 
-#Plotting
-matplotlib>=3.7
-seaborn>=0.12
+# Plotting & visualization
+matplotlib==3.10.6
+seaborn==0.13.2
 
-#IO / parquet 
-pyarrow>=12.0
-fastparquet>=2023.7.0
+# Data IO / parquet
+pyarrow==21.0.0
+fastparquet==2024.11.0
 
 # Classical ML
-scikit-learn>=1.3
-xgboost>=1.7
-imbalanced-learn>=0.10
+scikit-learn==1.7.1
+xgboost==3.0.4
+imbalanced-learn==0.14.0
 
-#Graph / embeddings
-networkx>=3.1
-karateclub>=1.3.3   # Node2Vec/DeepWalk/LINE
-gensim>=4.3        
+# Graph / embeddings
+networkx==3.5
+# gensim removed: requires numpy<2.0
 
-# Deep Learning / GNN
-torch
-torch-geometric
-
+# Deep Learning (no GNN)
+torch==2.8.0
+torchvision==0.23.0
