@@ -46,7 +46,7 @@ We analyze the graph of 203k nodes and 234k edges:
 - **Top-100 Hubs:** highlights the most connected transactions and their 1-hop neighborhoods, showing how laundering activity often clusters around a few "super-nodes".  
 - **Degree vs PageRank:** strong positive correlation; high-degree nodes tend to dominate PageRank influence, but outliers may indicate hidden intermediaries.  
 
-👉 These visualizations confirm the **scale-free nature** of the transaction graph and motivate the need for advanced graph-based models.
+  👉 These visualizations confirm the **scale-free nature** of the transaction graph and motivate the need for advanced graph-based models.
 ---
 
 ### 3. Feature Correlation Deduplication
