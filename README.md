@@ -22,6 +22,53 @@ This project uses the **Elliptic Bitcoin Dataset** to:
  **Split**: Time-based (70/10/20) to avoid data leakage  
 
 ---
+
+## 📊 Results (so far)
+
+Here are some key insights and visualizations from the first two notebooks:
+
+### 1. Class Distribution
+Illicit transactions are **heavily underrepresented** (~3%), while most transactions are unknown.  
+This highlights the **imbalance challenge** typical in fraud detection.  
+
+![Class Distribution](reports/figures/class_distribution.png)
+
+---
+
+### 2. Transaction Network Structure
+We analyze the graph of 203k nodes and 234k edges:  
+
+| Top-100 Hubs (Graph Subnetwork) | Degree vs PageRank (log-log) |
+|---------------------------------|-------------------------------|
+| ![Top-100 Hubs](reports/figures/top100_hubs.png) | ![Degree vs PageRank](reports/figures/scatter_degree_pagerank.png) |
+
+**What these show:**
+- **Top-100 Hubs:** highlights the most connected transactions and their 1-hop neighborhoods, showing how laundering activity often clusters around a few "super-nodes".  
+- **Degree vs PageRank:** strong positive correlation; high-degree nodes tend to dominate PageRank influence, but outliers may indicate hidden intermediaries.  
+
+👉 These visualizations confirm the **scale-free nature** of the transaction graph and motivate the need for advanced graph-based models.
+---
+
+### 3. Feature Correlation Deduplication
+We removed **46 highly correlated features** (threshold > 0.98), reducing redundancy and improving model stability.  
+
+| Before Deduplication | After Deduplication |
+|----------------------|---------------------|
+| ![Before](reports/figures/corr_heatmap_before.png) | ![After](reports/figures/corr_heatmap_after.png) |
+
+---
+
+### 4. Time-based Split (70/10/20)
+We split the dataset by **time steps** to avoid data leakage:  
+
+- **Train:** 29,936 licit / 2,659 illicit  
+- **Valid:** 4,096 licit / 560 illicit  
+- **Test:** 7,987 licit / 1,326 illicit  
+
+This ensures future transactions are never used to predict the past.  
+
+---
+
 > Note: Due to file size limits, raw data files are **not included** in this repository.  
 > Please download `elliptic_txs_features.csv` from the original Kaggle dataset and place it in `data/raw/`.
 
