@@ -46,7 +46,7 @@ We analyze the graph of 203k nodes and 234k edges:
 - **Top-100 Hubs:** highlights the most connected transactions and their 1-hop neighborhoods, showing how laundering activity often clusters around a few "super-nodes".  
 - **Degree vs PageRank:** strong positive correlation; high-degree nodes tend to dominate PageRank influence, but outliers may indicate hidden intermediaries.  
 
-  👉 These visualizations confirm the **scale-free nature** of the transaction graph and motivate the need for advanced graph-based models.
+  These visualizations confirm the **scale-free nature** of the transaction graph and motivate the need for advanced graph-based models.
 ---
 
 ### 3. Feature Correlation Deduplication
@@ -71,6 +71,50 @@ This ensures future transactions are never used to predict the past.
 
 > Note: Due to file size limits, raw data files are **not included** in this repository.  
 > Please download `elliptic_txs_features.csv` from the original Kaggle dataset and place it in `data/raw/`.
+
+### 5. Baseline Modeling 
+We trained **Logistic Regression** and **Random Forest** as baselines.  
+Thresholds were tuned on validation for best F1, then tested on the full and late-period splits.
+
+**Test performance (tuned thresholds):**
+
+| Model | PR-AUC | ROC-AUC | Precision (illicit) | Recall (illicit) | F1 (illicit) |
+|-------|-------:|--------:|---------------------:|-----------------:|-------------:|
+| Random Forest | **0.9912** | **0.9978** | 0.970 | 0.959 | **0.964** |
+| Logistic Regression | 0.7609 | 0.9659 | 0.691 | 0.876 | 0.772 |
+
+- **Random Forest** is a strong, production-ready baseline.  
+- **Logistic Regression** remains a stable, interpretable reference.
+
+<p align="center">
+  <img src="reports/figures/03_rf_pr_test.png" alt="RF PR curve (Test)" width="30%">
+  <img src="reports/figures/03_rf_roc_test.png" alt="RF ROC curve (Test)" width="30%">
+  <img src="reports/figures/03_rf_feature_importance_top20.png" alt="RF Feature Importance (Top-20)" width="30%">
+</p>
+
+---
+
+###  Next Steps (Planned Work)
+
+**Notebook 4: Graph-based ML & GNN Experiments**
+- Generate graph embeddings (Node2Vec, DeepWalk)  
+- Hybrid modeling: embeddings + tabular features  
+- Implement Graph Neural Networks (GCN / GraphSAGE)  
+- Compare ML-only vs graph-enhanced performance  
+- Visualize embeddings with t-SNE  
+
+**Notebook 5: Anomaly Detection**
+- Semi-supervised learning (Label Propagation / Label Spreading)  
+- Outlier detection on embeddings (Isolation Forest, LOF)  
+- Time-aware anomaly scoring to detect evolving laundering patterns  
+- Identify high-risk unlabeled transactions  
+
+**Longer-term goals**
+- Expand experiments to other AML / fraud datasets  
+- Benchmark scalability on larger transaction graphs  
+- Integrate into a real-world FinCrime case study or prototype AML system  
+- Draft a PhD research proposal based on findings  
+
 
 ## Data Setup
 
@@ -190,8 +234,8 @@ Then open `01_exploration.ipynb` and follow the sequence.
 
 - ✅ 01_exploration.ipynb – completed (graph structure, class distribution, LCC visualization)  
 - ✅ 02_preprocessing.ipynb – completed (feature cleaning, deduplication: dropped 46 correlated columns, time-based split)  
-- ⏳ 03_modeling.ipynb – in progress  
-- 🔜 04_graph_models.ipynb – planned  
+- ✅ 03_modeling.ipynb – in progress  
+- ⏳ 04_graph_models.ipynb – planned  
 - 🔜 05_anomaly_detection.ipynb – planned  
 
 ---
