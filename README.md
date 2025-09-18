@@ -185,7 +185,7 @@ elliptic-aml-analysis/
 
 ---
 
-### **04_graph_models.ipynb** – *Graph-based ML & GNN Experiments* *(planned)*
+### **04_graph_models.ipynb** – *Graph-based ML & GNN Experiments*
 - Generate graph embeddings (Node2Vec, DeepWalk)  
 - Hybrid modeling: embeddings + tabular features  
 - Implement **GNNs** (GraphSAGE / GCN) in PyTorch Geometric or DGL  
