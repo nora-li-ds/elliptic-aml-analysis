@@ -13,8 +13,16 @@ This project uses the **Elliptic Bitcoin Dataset** to:
 - Train models to classify suspicious transactions  
 - Explore GNNs & anomaly detection for **unknown-class fraud**  
 - This project is part of my portfolio on FinCrime Data Science, connecting academic research with industry AML use cases.
+- Research question: *To what extent can graph-based learning methods (embeddings, GNNs) provide incremental predictive power for AML detection beyond tabular features alone?*
+
+
+> **So far:** Random Forest (tabular) reaches PR-AUC≈0.99;  
+> Graph embeddings (Node2Vec SVD fallback) add little;  
+> Future work: temporal GNNs to unlock hidden laundering patterns.
+
 
 ## Quick Facts 
+
  **Dataset**: 203k transactions, 234k edges, 166 features  
  **Challenge**: Only ~3% illicit → heavy imbalance  
  **Graph**: 49 connected components, focus on LCC  
@@ -121,32 +129,25 @@ Since `karateclub` was unavailable in the current environment, we used a fallbac
 - **Tabular features dominate** → strong predictive signal already captured.  
 - **Fusion (Tabular + Embeddings)** → no improvement under fallback embeddings.  
 
+**Key Insight:**  
+Despite the rich graph structure, tabular features alone already capture most predictive signal.  
+Preliminary Node2Vec embeddings (SVD fallback) add **no measurable gain**.  
+This suggests:  
+- Either laundering activity is encoded in temporal/tabular patterns more than topology, or  
+- Better graph representation learning (random walks, temporal GNNs) is required to surface graph signal.
+
 ---
 
-### Next Steps (Planned Work)
-
-- Re-run **Node2Vec** with proper walk parameters once the environment allows (`karateclub` or `PyTorch Geometric`).  
-- Experiment with **DeepWalk** and **LINE** for alternative embeddings.  
-- Implement **Graph Neural Networks** (GCN, GraphSAGE) with `PyTorch Geometric` or `DGL`.  
-- Study **hybrid models** (tabular + graph embeddings) using tree ensembles (LightGBM, XGBoost).  
-- Explore **temporal graph embeddings** (TGAT, TGN) to capture evolving laundering dynamics.
+**Future Directions (towards a publishable study):**
+- Robust Node2Vec/DeepWalk experiments with hyperparameter sweeps
+- Temporal GNNs (TGAT, TGN) to explicitly model evolving laundering dynamics
+- Comparative benchmark: Tabular ML vs Static Graph vs Temporal Graph
+- Semi-supervised anomaly detection for high-risk unknown transactions
 
 ---
 
 > *So far, baselines confirm: tabular features are highly predictive; SVD embeddings alone are weak. Proper random-walk embeddings and GNNs are needed to unlock additional graph signal.*
 
-
-**Notebook 5: Anomaly Detection**
-- Semi-supervised learning (Label Propagation / Label Spreading)  
-- Outlier detection on embeddings (Isolation Forest, LOF)  
-- Time-aware anomaly scoring to detect evolving laundering patterns  
-- Identify high-risk unlabeled transactions  
-
-**Longer-term goals**
-- Expand experiments to other AML / fraud datasets  
-- Benchmark scalability on larger transaction graphs  
-- Integrate into a real-world FinCrime case study or prototype AML system  
-- Draft a PhD research proposal based on findings  
 
 
 ## Data Setup
@@ -244,6 +245,14 @@ elliptic-aml-analysis/
   - `1` = illicit  
   - `2` = licit  
   - `0` = unknown  
+  
+---
+
+📖 Academic Note:  
+This project serves both as a **portfolio artifact** and a **research seed**.  
+It bridges industry AML use cases (production-ready baselines) with academic questions (graph learning vs tabular ML).  
+It is being prepared as a foundation for potential MSc/PhD research proposals in **Crime Science / FinCrime Data Science**.
+
 
 ---
 
