@@ -92,16 +92,49 @@ Thresholds were tuned on validation for best F1, then tested on the full and lat
   <img src="reports/figures/03_rf_feature_importance_top20.png" alt="RF Feature Importance (Top-20)" width="30%">
 </p>
 
+
 ---
 
-###  Next Steps (Planned Work)
+6. Graph-based Modeling (Notebook 4)
 
-**Notebook 4: Graph-based ML & GNN Experiments**
-- Generate graph embeddings (Node2Vec, DeepWalk)  
-- Hybrid modeling: embeddings + tabular features  
-- Implement Graph Neural Networks (GCN / GraphSAGE)  
-- Compare ML-only vs graph-enhanced performance  
-- Visualize embeddings with t-SNE  
+We explored graph structure with **Node2Vec embeddings** (128 dimensions).  
+Since `karateclub` was unavailable in the current environment, we used a fallback (`node2vec` package + SVD backup).  
+
+**Embeddings visualization:**
+
+| PCA (2D) | t-SNE (2D) |
+|----------|------------|
+| ![PCA](reports/figures/04_emb_pca_2d.png) | ![t-SNE](reports/figures/04_emb_tsne_2d.png) |
+
+- **PCA:** embeddings collapse towards the origin, showing limited separation under the SVD fallback.  
+- **t-SNE:** small clusters emerge, with licit/illicit mixed but some peripheral groups suggesting latent structure.  
+
+**Quick baseline with embeddings vs tabular features:**
+
+| Model Variant           | Valid PR-AUC | Test PR-AUC | Test ROC-AUC |
+|--------------------------|--------------|-------------|--------------|
+| Embeddings only (SVD)    | 0.121        | 0.142       | 0.500        |
+| Tabular only (121 feats) | 0.710        | 0.761       | 0.966        |
+| Tabular + Embeddings     | 0.709        | 0.760       | 0.966        |
+
+- **Embeddings-only ≈ random** → expected with SVD fallback, no clear illicit/licit separation.  
+- **Tabular features dominate** → strong predictive signal already captured.  
+- **Fusion (Tabular + Embeddings)** → no improvement under fallback embeddings.  
+
+---
+
+### Next Steps (Planned Work)
+
+- Re-run **Node2Vec** with proper walk parameters once the environment allows (`karateclub` or `PyTorch Geometric`).  
+- Experiment with **DeepWalk** and **LINE** for alternative embeddings.  
+- Implement **Graph Neural Networks** (GCN, GraphSAGE) with `PyTorch Geometric` or `DGL`.  
+- Study **hybrid models** (tabular + graph embeddings) using tree ensembles (LightGBM, XGBoost).  
+- Explore **temporal graph embeddings** (TGAT, TGN) to capture evolving laundering dynamics.
+
+---
+
+> *So far, baselines confirm: tabular features are highly predictive; SVD embeddings alone are weak. Proper random-walk embeddings and GNNs are needed to unlock additional graph signal.*
+
 
 **Notebook 5: Anomaly Detection**
 - Semi-supervised learning (Label Propagation / Label Spreading)  
