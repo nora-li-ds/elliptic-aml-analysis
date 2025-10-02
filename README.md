@@ -5,20 +5,26 @@ Can we **catch money launderers** using **machine learning + network science**?
 ---
 
 ## Why this project?
-Fraudsters are smart. Data scientists must be smarter.  
+
+Illicit financial flows are increasingly complex, and transaction networks provide a natural testbed for studying them.  
 This project uses the **Elliptic Bitcoin Dataset** to:
 
-- Visualize how dirty money flows through networks  
-- Build graph features (centrality, embeddings, temporal splits)  
-- Train models to classify suspicious transactions  
-- Explore GNNs & anomaly detection for **unknown-class fraud**  
-- This project is part of my portfolio on FinCrime Data Science, connecting academic research with industry AML use cases.
-- Research question: *To what extent can graph-based learning methods (embeddings, GNNs) provide incremental predictive power for AML detection beyond tabular features alone?*
+- Visualize how suspicious funds may flow through transaction graphs  
+- Engineer graph-based features (e.g. centrality, embeddings, temporal splits)  
+- Train baseline models to classify illicit vs. licit transactions  
+- Explore graph neural networks (GNNs) and anomaly detection for unlabelled cases  
 
+**Research question:**  
+To what extent can graph-based methods (embeddings, GNNs) provide incremental predictive power for AML detection beyond traditional tabular features?  
 
-> **So far:** Random Forest (tabular) reaches PR-AUC≈0.99;  
-> Graph embeddings (Node2Vec SVD fallback) add little;  
-> Future work: temporal GNNs to unlock hidden laundering patterns.
+**So far:**  
+- Random Forest on tabular features achieves strong performance (PR-AUC≈0.99), though results are affected by class imbalance.  
+- Initial graph embeddings (Node2Vec with SVD) added little beyond tabular features.  
+
+**Next steps:**  
+- Implement temporal GNNs to capture evolving laundering patterns  
+- Compare hybrid models (tabular + graph) to assess real incremental value
+
 
 
 ## Quick Facts 
