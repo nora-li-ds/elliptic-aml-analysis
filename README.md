@@ -284,7 +284,7 @@ Then open `01_exploration.ipynb` and follow the sequence.
 - ✅ 02_preprocessing.ipynb – completed (feature cleaning, deduplication: dropped 46 correlated columns, time-based split)  
 - ✅ 03_modeling.ipynb – completed
 - ⏳ 04_graph_models.ipynb – in progress  
-- 🔜 05_anomaly_detection.ipynb – planned (•̀ᴗ•́)و
+- 🔜 05_anomaly_detection.ipynb – planned 
 
 ---
 
